@@ -35,7 +35,7 @@ class AddLocationFragment : Fragment() {
     private var selectedPlace: Place? = null
     private var existingLocation: LocationEntity? = null
 
-    // 🔁 Register ActivityResultLauncher
+    //  Register ActivityResultLauncher
     private val autocompleteLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -58,12 +58,12 @@ class AddLocationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 🔁 Get passed arguments
+        //  Get passed arguments
         existingLocation = arguments?.let {
             AddLocationFragmentArgs.fromBundle(it).locationEntity
         }
 
-        // ✏️ Pre-fill if editing
+        //  Pre-fill if editing
         existingLocation?.let {
             binding.etPlace.setText(it.name)
             selectedPlace = Place.builder()
